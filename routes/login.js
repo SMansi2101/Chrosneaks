@@ -4,11 +4,8 @@ const isLoggedIn = require('../middlewares/isLoggedIn');
 
 router.get("/", function(req, res) {
    let error = req.flash("error");
-   res.render("login" , {error});
+   res.render("login" , {error , loggedin:false});
 });
 
-router.get("/shop" , isLoggedIn ,function(req,res){
-    res.render('shop');
-});
 
 module.exports = router;

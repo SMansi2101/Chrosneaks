@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Product</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/createprostyle.css">
+</head>
+<body class="bg-gray-100">
+    <% if (success && success.length > 0) { %>
+        <div class="error-box">
+            <span class="error-text">
+                <%= success %>
+            </span>
+        </div>
+    <% } %>
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-800 text-white fixed top-0 bottom-0 h-full">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold">Chrosneaks Admin</h1>
+                <nav class="mt-8">
+                    <ul>
+                        <li class="mb-4"><a href="" class="hover:text-gray-400">All Products</a></li>
+                        <li><a href="" class="text-gray-400">Create New Product</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="ml-64 flex-1 p-6">
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                <h1 class="text-3xl font-bold mb-6">Create New Product</h1>
+                <form autocomplete="off" action="/products/create" method="post" enctype="multipart/form-data">
+                    <!-- Product Details -->
+                    <div class="mb-6">
+                        <label for="productImage" class="block text-gray-700 font-medium mb-2">Product Image</label>
+                        <input type="file" name="image" id="productImage" class="border rounded-lg p-2 w-full">
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="productName" class="block text-gray-700 font-medium mb-2">Product name</label>
+                        <input type="text" name="name" class="border rounded-lg p-2 w-full" placeholder="Enter product name">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="productName" class="block text-gray-700 font-medium mb-2">Product Description</label>
+                        <input type="text" name="description" class="border rounded-lg p-2 w-full" placeholder="Enter product Description">
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="productPrice" class="block text-gray-700 font-medium mb-2">Product Price</label>
+                        <input type="number" id="productPrice" name="price" class="border rounded-lg p-2 w-full" placeholder="Enter product price">
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="discountPrice" class="block text-gray-700 font-medium mb-2">Discount Price</label>
+                        <input type="number" id="discountPrice" name="discount" class="border rounded-lg p-2 w-full" placeholder="Enter discount price">
+                    </div>
+
+                    <!-- Panel Details -->
+                    <div class="mb-6">
+                        <h2 class="text-2xl font-bold mb-4">Panel Details</h2>
+
+                        <div class="mb-4">
+                            <label for="bgColor" class="block text-gray-700 font-medium mb-2">Background Color</label>
+                            <input type="color" id="bgColor" name="bgcolor" placeholder="Enter background color" class="border rounded-lg p-2 w-full">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="textColor" class="block text-gray-700 font-medium mb-2">Text Color</label>
+                            <input type="color" name="textcolor" placeholder="Enter text color" id="textColor" class="border rounded-lg p-2 w-full">
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">Create New Product</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const errorBox = document.querySelector('.error-box');
+            if (errorBox) {
+                setTimeout(function() {
+                    errorBox.classList.add('hidden');
+                }, 3000); // Time in milliseconds (3 seconds here)
+            }
+        });
+    </script>
+</body>
+</html>

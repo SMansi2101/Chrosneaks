@@ -8,6 +8,8 @@ const usersRouter = require('./routes/usersRouter');
 const productsRouter = require('./routes/productsRouter');
 const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
+const shopRouter = require('./routes/shop');
+const logoutRouter = require('./routes/logout');
 const expressSession = require('express-session');
 const flash = require('connect-flash');
 
@@ -34,7 +36,9 @@ app.use("/owners", ownersRouter);
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
 app.use("/register", registerRouter); 
-app.use("/login", loginRouter);   
+app.use("/login", loginRouter); 
+app.use("/shop",shopRouter); 
+app.use("/logout",logoutRouter);  
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000");

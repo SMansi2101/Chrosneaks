@@ -1,0 +1,88 @@
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    animation: textAnimation 6s infinite linear;
+    font-size: 2rem; /* Adjust for smaller screens */
+    position: fixed; /* Fix position to keep logo in place */
+    top: 1rem; /* Adjust distance from the top */
+    left: 1rem; /* Adjust distance from the left */
+    z-index: 10; /* Ensure it stays on top */
+}
+
+@keyframes textAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.logo .chro {
+    background: linear-gradient(to right, #ff9a8b, #ff6a00, #f8f7f0, #d7d2cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline;
+    font-weight: bold;
+    background-size: 200% 200%;
+    animation: textAnimation 6s infinite linear;
+}
+
+.logo .sneaks {
+    color: #2d3748;
+    font-weight: bold;
+}
+
+body {
+    background-color: #f7fafc;
+}
+
+.sidebar-container {
+    margin-top: 0.8rem; /* Space for the fixed logo */
+    border-right: 1px solid #e5e7eb; /* Tailwind's gray-200 */
+    background-color: #f9fafb; /* Tailwind's gray-100 */
+    padding-top: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+}
+
+.sidebar-container nav h3 {
+    margin-bottom: 0.75rem;
+    color: #4b5563; /* Tailwind's gray-600 */
+    font-size: 1.25rem;
+}
+
+.sidebar-container nav a {
+    transition: color 0.3s ease, background-color 0.3s ease;
+    color: #6b7280; /* Tailwind's gray-500 */
+    padding: 0.5rem;
+    border-radius: 0.25rem; /* Tailwind's rounded */
+    display: block;
+}
+
+.sidebar-container nav a:hover {
+    background-color: #e5e7eb; /* Tailwind's gray-200 */
+    color: #1f2937; /* Tailwind's gray-800 */
+}
+
+.product-container {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.product-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background-color: #f1f5f9; /* Slight background color change on hover */
+}
+
+.product-container img {
+    transition: transform 0.3s ease;
+}
+
+.product-container:hover img {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrosneaks Shop</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/shopstyle.css">
+
+</head>
+<body class="bg-gray-100">
+    <%- include('partials/header') %>
+    
+    <div>
+        <h1 class="text-2xl font-bold logo md:text-3xl">
+            <span class="chro">Chro</span><span class="sneaks">sneaks</span>
+        </h1>
+    </div>
+    <div class="flex flex-col md:flex-row min-h-screen pt-16">
+        <!-- Sidebar -->
+        <div class="w-full md:w-64 p-4 shadow-lg sidebar-container md:fixed md:left-0 md:top-16 md:h-screen md:overflow-y-auto">
+            <nav class="space-y-6">
+                <div>
+                    <h3 class="text-lg font-semibold">Sort By</h3>
+                    <ul class="pl-4 space-y-2">
+                        <li><a href="#">Newest</a></li>
+                        <li><a href="#">Popular</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold">Categories</h3>
+                    <ul class="pl-4 space-y-2">
+                        <li><a href="#">New Collection</a></li>
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">Discounted Products</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold">Filter By</h3>
+                    <ul class="pl-4 space-y-2">
+                        <li><a href="#">Availability</a></li>
+                        <li><a href="#">Discount</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-4 md:p-8 md:ml-64">
+            <h1 class="text-2xl font-bold text-gray-800 mb-8 md:text-3xl">Shop</h1>
+            <!-- Products grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <% products.forEach(function(product){ %>
+                    <!-- Placeholder for product items -->
+                    <div class="p-4 shadow rounded-lg product-container" style="background-color: <%= product.bgcolor %>;">
+                        <img src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" alt="Product Image" class="w-full h-62 object-cover mb-4 rounded-lg">
+                        <h2 class="text-xl font-semibold" style="color: <%= product.textcolor %>;"><%= product.name %></h2>
+                        <p style="color: <%= product.textcolor %>;"><%= product.description %> </p>
+                        <div class="mt-4">
+                            <span class="text-lg font-bold" style="color: <%= product.textcolor %>;"><%= product.price %> Rs.</span>
+                        </div>
+                        <div class="mt-2">
+                            <span class="text-lg font-bold" style="color: <%= product.textcolor %>;"><%= product.discount %></span>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

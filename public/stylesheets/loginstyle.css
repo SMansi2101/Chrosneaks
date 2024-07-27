@@ -1,0 +1,64 @@
+body {
+    background-color: #1a202c;
+}
+
+.error-box {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #d6030a;
+    opacity: 1;
+    transition: opacity 0.5s ease, display 0.5s ease;
+}
+
+.error-box.hidden {
+    opacity: 0;
+    display: none;
+}
+
+.error-text {
+    color: white;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    animation: textAnimation 6s infinite linear;
+}
+
+@keyframes textAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.logo .chro {
+    background: linear-gradient(to right, #ff9a8b, #ff6a00, #f8f7f0, #d7d2cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline;
+    font-weight: bold;
+    font-size: 3rem;
+    background-size: 200% 200%;
+    animation: textAnimation 6s infinite linear;
+}
+
+.logo .sneaks {
+    color: #2d3748;
+    font-weight: bold;
+    font-size: 3rem;
+    animation: textAnimation 6s infinite linear;
+}
+
+.login-link, .register-link {
+    color: #4a5568;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-link:hover, .register-link:hover {
+    color: #2b6cb0;
+}

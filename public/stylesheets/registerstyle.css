@@ -1,0 +1,81 @@
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    animation: textAnimation 6s infinite linear;
+    /* Updated to 6s */
+}
+
+@keyframes textAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.logo .chro {
+    background: linear-gradient(to right, #ff9a8b, #ff6a00, #f8f7f0, #d7d2cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline;
+    font-weight: bold;
+    font-size: 3rem;
+    /* Adjust size as needed */
+    background-size: 200% 200%;
+    animation: textAnimation 6s infinite linear;
+    /* Updated to 6s */
+}
+
+.logo .sneaks {
+    color: #2d3748;
+    /* Darker shade for contrast */
+    font-weight: bold;
+    font-size: 3rem;
+    /* Adjust size as needed */
+    animation: textAnimation 6s infinite linear;
+    /* Updated to 6s */
+}
+
+.login-link {
+    color: #4a5568;
+    /* Fresh, subtle gray */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-link:hover {
+    color: #2b6cb0;
+    /* Change color on hover */
+}
+
+body {
+    background-color: #1a202c;
+    /* Slightly darker background color */
+}
+
+.error-box {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #d6030a;
+    opacity: 1;
+    transition: opacity 0.5s ease, display 0.5s ease;
+}
+
+.error-box.hidden {
+    opacity: 0;
+    display: none;
+}
+
+.error-text {
+    color: white;
+}

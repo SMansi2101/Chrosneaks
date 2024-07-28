@@ -5,7 +5,8 @@ const productModel = require('../models/product-model');
 
 router.get("/", isLoggedIn, async function(req, res) {
     let products = await productModel.find();
-    res.render('shop',{products});
+    let success = req.flash("success");
+    res.render('shop',{products , success});
 });
 
 module.exports = router;

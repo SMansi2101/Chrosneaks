@@ -1,0 +1,70 @@
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    animation: textAnimation 6s infinite linear;
+}
+
+@keyframes textAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.logo .chro {
+    background: linear-gradient(to right, #ff9a8b, #ff6a00, #f8f7f0, #d7d2cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline;
+    font-weight: bold;
+    font-size: 3rem;
+    background-size: 200% 200%;
+    animation: textAnimation 6s infinite linear;
+}
+
+.logo .sneaks {
+    color: #2d3748;
+    font-weight: bold;
+    font-size: 3rem;
+    animation: textAnimation 6s infinite linear;
+}
+
+.logo {
+    z-index: 10;
+}
+.product-image {
+    transition: transform 0.3s ease-in-out;
+}
+.product-image:hover {
+    transform: scale(1.1);
+}
+.cart-container {
+    animation: fadeIn 1s ease-in-out;
+}
+.price-breakdown {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.price-breakdown:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.remove-btn {
+    background-color: #e53e3e; /* Subdued red color */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.remove-btn:hover {
+    background-color: #c53030; /* Darker shade of red */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+.remove-btn:focus {
+    outline: none;
+}
+

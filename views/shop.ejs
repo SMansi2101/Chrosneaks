@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,19 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/shopstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
+
 <body class="bg-gray-100">
     <%- include('partials/header') %>
-    
+    <% if (success && success.length > 0) { %>
+        <div class="notification-box show">
+            <span class="notification-text">
+                <%= success %>
+            </span>
+        </div>
+    <% } %>
     <div>
         <h1 class="text-2xl font-bold logo md:text-3xl">
             <span class="chro">Chro</span><span class="sneaks">sneaks</span>
@@ -53,20 +62,48 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 <% products.forEach(function(product){ %>
                     <!-- Placeholder for product items -->
-                    <div class="p-4 shadow rounded-lg product-container" style="background-color: <%= product.bgcolor %>;">
-                        <img src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" alt="Product Image" class="w-full h-62 object-cover mb-4 rounded-lg">
-                        <h2 class="text-xl font-semibold" style="color: <%= product.textcolor %>;"><%= product.name %></h2>
-                        <p style="color: <%= product.textcolor %>;"><%= product.description %> </p>
-                        <div class="mt-4">
-                            <span class="text-lg font-bold" style="color: <%= product.textcolor %>;"><%= product.price %> Rs.</span>
+                    <div class="p-4 shadow rounded-lg product-container"
+                        style="background-color: <%= product.bgcolor %>;">
+                        <img src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
+                            alt="Product Image" class="w-full h-62 object-cover mb-4 rounded-lg">
+                        <h2 class="text-xl font-semibold" style="color: <%= product.textcolor %>;">
+                            <%= product.name %>
+                        </h2>
+                        <p style="color: <%= product.textcolor %>;">
+                            <%= product.description %>
+                        </p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <span class="text-lg font-bold" style="color: <%= product.textcolor %>;">
+                                <%= product.price %> Rs.
+                            </span>
+                            <a href="/addtocart/<%= product._id %>"
+                                class="text-4xl font-bold hover:text-blue-600 cart-icon"
+                                style="color: <%= product.textcolor %>;">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </a>
                         </div>
                         <div class="mt-2">
-                            <span class="text-lg font-bold" style="color: <%= product.textcolor %>;"><%= product.discount %></span>
+                            <span class="text-lg font-bold" style="color: <%= product.textcolor %>;">
+                                <%= product.discount %>
+                            </span>
                         </div>
                     </div>
                 <% }) %>
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const notificationBox = document.querySelector('.notification-box');
+            if (notificationBox) {
+                notificationBox.classList.add('show');
+                setTimeout(function () {
+                    notificationBox.classList.remove('show');
+                    notificationBox.classList.add('hidden');
+                }, 3000); // Time in milliseconds (3 seconds here)
+            }
+        });
+    </script>
 </body>
+
 </html>

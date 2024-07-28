@@ -5,7 +5,7 @@ const productModel = require('../models/product-model');
 
 router.post("/create", upload.single("image") , async function(req,res){
     try {
-        let {name,price,description,discount, bgcolor, panelcolor, textcolor,} = req.body;
+        let {name,price,description,discount,shippingfee, bgcolor, panelcolor, textcolor,} = req.body;
     
         let product = await productModel.create({
             image : req.file.buffer,
@@ -13,11 +13,12 @@ router.post("/create", upload.single("image") , async function(req,res){
             price,
             description,
             discount,
+            shippingfee,
             bgcolor,
             panelcolor,
             textcolor,
         })
-        req.flash("success", "Product Created Succeddfully");
+        req.flash("success", "Product Created Successfully");
         res.redirect("/owners/admin")
     } catch (error) {
         res.send(err.message);

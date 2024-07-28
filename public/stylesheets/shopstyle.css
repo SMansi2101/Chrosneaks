@@ -74,15 +74,52 @@ body {
 }
 
 .product-container:hover {
-    transform: translateY(-5px);
+    transform: translateY(18px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     background-color: #f1f5f9; /* Slight background color change on hover */
 }
 
 .product-container img {
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
 }
 
 .product-container:hover img {
-    transform: scale(1.05); /* Slight zoom effect on hover */
+    transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+.cart-icon i {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.cart-icon:hover i {
+    transform: scale(1.2); /* Slight zoom effect on hover */
+    color: #094a87; /* Tailwind's blue-600 */
+}
+
+/* Custom Styles */
+.notification-box {
+    background-color: #28a745; /* Green color */
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notification-box.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.notification-box.hidden {
+    display: none;
 }
